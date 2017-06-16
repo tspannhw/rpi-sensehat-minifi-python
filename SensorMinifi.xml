@@ -1,0 +1,181 @@
+<?xml version="1.0" ?>
+<template encoding-version="1.1">
+  <description></description>
+  <groupId>89524ec2-015c-1000-63ee-dd5fe922d261</groupId>
+  <name>SensorMinifi</name>
+  <snippet>
+    <connections>
+      <id>5635290a-4cb6-3da7-0000-000000000000</id>
+      <parentGroupId>977ba224-365a-3ff2-0000-000000000000</parentGroupId>
+      <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+      <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+      <destination>
+        <groupId>fdc45649-84be-374b-0000-000000000000</groupId>
+        <id>166616e3-1962-1660-2b7c-2f824584b23a</id>
+        <type>REMOTE_INPUT_PORT</type>
+      </destination>
+      <flowFileExpiration>0 sec</flowFileExpiration>
+      <labelIndex>1</labelIndex>
+      <name>minifiSenseHat</name>
+      <selectedRelationships>success</selectedRelationships>
+      <source>
+        <groupId>977ba224-365a-3ff2-0000-000000000000</groupId>
+        <id>db6fbd3b-ddf4-3041-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </source>
+      <zIndex>0</zIndex>
+    </connections>
+    <labels>
+      <id>a246449d-308c-3919-0000-000000000000</id>
+      <parentGroupId>977ba224-365a-3ff2-0000-000000000000</parentGroupId>
+      <position>
+        <x>0.5901623099197764</x>
+        <y>0.0</y>
+      </position>
+      <height>144.38217163085938</height>
+      <label>RPI 3 SENSE-HAT MINIFI
+</label>
+      <style>
+        <entry>
+          <key>font-size</key>
+          <value>24px</value>
+        </entry>
+      </style>
+      <width>726.9945678710938</width>
+    </labels>
+    <processors>
+      <id>db6fbd3b-ddf4-3041-0000-000000000000</id>
+      <parentGroupId>977ba224-365a-3ff2-0000-000000000000</parentGroupId>
+      <position>
+        <x>0.0</x>
+        <y>183.17602646718615</y>
+      </position>
+      <bundle>
+        <artifact>nifi-standard-nar</artifact>
+        <group>org.apache.nifi</group>
+        <version>1.2.0</version>
+      </bundle>
+      <config>
+        <bulletinLevel>WARN</bulletinLevel>
+        <comments></comments>
+        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+        <descriptors>
+          <entry>
+            <key>Command</key>
+            <value>
+              <name>Command</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Command Arguments</key>
+            <value>
+              <name>Command Arguments</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Batch Duration</key>
+            <value>
+              <name>Batch Duration</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Redirect Error Stream</key>
+            <value>
+              <name>Redirect Error Stream</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Argument Delimiter</key>
+            <value>
+              <name>Argument Delimiter</name>
+            </value>
+          </entry>
+        </descriptors>
+        <executionNode>ALL</executionNode>
+        <lossTolerant>false</lossTolerant>
+        <penaltyDuration>30 sec</penaltyDuration>
+        <properties>
+          <entry>
+            <key>Command</key>
+            <value>/opt/demo/rpi-sensehat-mqtt-nifi/sense2.sh</value>
+          </entry>
+          <entry>
+            <key>Command Arguments</key>
+          </entry>
+          <entry>
+            <key>Batch Duration</key>
+          </entry>
+          <entry>
+            <key>Redirect Error Stream</key>
+            <value>true</value>
+          </entry>
+          <entry>
+            <key>Argument Delimiter</key>
+            <value> </value>
+          </entry>
+        </properties>
+        <runDurationMillis>0</runDurationMillis>
+        <schedulingPeriod>60 sec</schedulingPeriod>
+        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+        <yieldDuration>1 sec</yieldDuration>
+      </config>
+      <name>ExecuteProcess</name>
+      <relationships>
+        <autoTerminate>false</autoTerminate>
+        <name>success</name>
+      </relationships>
+      <style></style>
+      <type>org.apache.nifi.processors.standard.ExecuteProcess</type>
+    </processors>
+    <remoteProcessGroups>
+      <id>fdc45649-84be-374b-0000-000000000000</id>
+      <parentGroupId>977ba224-365a-3ff2-0000-000000000000</parentGroupId>
+      <position>
+        <x>763.2206663956056</x>
+        <y>166.08156497438313</y>
+      </position>
+      <communicationsTimeout>30 sec</communicationsTimeout>
+      <contents>
+        <inputPorts>
+          <comments></comments>
+          <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+          <connected>false</connected>
+          <exists>true</exists>
+          <id>9c843ad3-015c-1000-196a-ca9ba328c719</id>
+          <name>MiniFi Images</name>
+          <targetRunning>false</targetRunning>
+          <transmitting>false</transmitting>
+          <useCompression>false</useCompression>
+        </inputPorts>
+        <inputPorts>
+          <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+          <connected>true</connected>
+          <exists>true</exists>
+          <id>166616e3-1962-1660-2b7c-2f824584b23a</id>
+          <name>MiniFi SenseHat</name>
+          <targetRunning>false</targetRunning>
+          <transmitting>true</transmitting>
+          <useCompression>false</useCompression>
+        </inputPorts>
+        <inputPorts>
+          <comments></comments>
+          <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+          <connected>false</connected>
+          <exists>true</exists>
+          <id>8d7ac155-015c-1000-48d3-6a158aedc530</id>
+          <name>MiniFi Tinker</name>
+          <targetRunning>false</targetRunning>
+          <transmitting>false</transmitting>
+          <useCompression>false</useCompression>
+        </inputPorts>
+      </contents>
+      <proxyHost></proxyHost>
+      <proxyUser></proxyUser>
+      <targetUri>http://hw13125.local:8080/nifi</targetUri>
+      <targetUris>http://hw13125.local:8080/nifi</targetUris>
+      <transportProtocol>HTTP</transportProtocol>
+      <yieldDuration>10 sec</yieldDuration>
+    </remoteProcessGroups>
+  </snippet>
+  <timestamp>06/16/2017 16:36:46 EDT</timestamp>
+</template>
